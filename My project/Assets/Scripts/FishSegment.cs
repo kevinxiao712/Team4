@@ -10,6 +10,7 @@ public class FishSegment : MonoBehaviour
     private Vector2 previousPosition;
     private Vector2 currentPosition;
     private Vector2 velocity;
+    private float xForce;
 
     private FishController fishController;
 
@@ -27,6 +28,7 @@ public class FishSegment : MonoBehaviour
         previousPosition = transform.position;
         currentPosition = transform.position;
         velocity = Vector2.zero;
+        xForce = 0;
     }
 
     private void FixedUpdate()
@@ -37,6 +39,26 @@ public class FishSegment : MonoBehaviour
         currentPosition = transform.position;
         velocity = (currentPosition - previousPosition) / Time.deltaTime;
         previousPosition = currentPosition;
+
+        Debug.Log(xForce);
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            xForce = 5f;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            xForce = -5f;
+        }
+        else
+        {
+            xForce = 0;
+        }
+
     }
 
     private Vector2 CalLocalPosition()
@@ -59,7 +81,7 @@ public class FishSegment : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            Vector2 bounceForce = 5f * new Vector2(velocity.x, -velocity.y);
+            Vector2 bounceForce = 5f * new Vector2(velocity.x + xForce, -velocity.y);
 
             fishController.BounceUp(bounceForce, transform.position);
         }

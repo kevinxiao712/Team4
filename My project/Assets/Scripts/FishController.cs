@@ -30,6 +30,26 @@ public class FishController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        ChangeAngle();
+
+    }
+
+    private void ChangeAngle()
+    {
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            if(currentAngle < 1)
+            currentAngle = currentAngle + .02f;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (currentAngle > -1)
+                currentAngle = currentAngle - .02f;
+        }
+    }
+
     public void BounceUp(Vector2 force, Vector2 position)
     {
         rb.AddForceAtPosition(force, position);
