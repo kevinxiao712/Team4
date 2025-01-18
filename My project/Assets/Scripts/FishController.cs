@@ -9,6 +9,8 @@ public class FishController : MonoBehaviour
     [SerializeField, Tooltip("This is the default distance between segments.")]
     private float segDistance;
 
+    [SerializeField, Tooltip("This is the multiplier for bouncing force.")]
+    private float bouncingForceScale;
     [SerializeField, Tooltip("This is the multiplier of driving force, compared to the boucing force.")]
     private float drivingForceMult;
     private Vector2 drivingForceScale;
@@ -19,9 +21,9 @@ public class FishController : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    public float MaxDrivingForce
-    { 
-        get { return drivingForceMult; } 
+    public float BouncingForceScale
+    {
+        get { return bouncingForceScale; }
     }
 
     public float SegDistance
