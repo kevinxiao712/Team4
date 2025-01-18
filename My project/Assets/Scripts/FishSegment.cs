@@ -48,11 +48,11 @@ public class FishSegment : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            xForce = 5f;
+            xForce = 1f;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            xForce = -5f;
+            xForce = -1f;
         }
         else
         {
