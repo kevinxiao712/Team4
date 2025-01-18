@@ -488,8 +488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBendAngle: 10
   segDistance: 0.33
-  bouncingForceScale: 10
-  drivingForceMult: 0.2
+  bouncingForceScale: 7
+  drivingForceMult: 0.3
   currentAngleScale: 0
 --- !u!114 &1726630423107362418
 MonoBehaviour:
