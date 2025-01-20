@@ -66,7 +66,7 @@ public class FishController : MonoBehaviour
 
     public void BounceUp(Vector2 boucingForce, Vector2 position)
     {
-        rb.velocity = new Vector2(rb.velocity.x * 0.1f, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x * 0.1f, rb.velocity.y * 0.5f);
 
         Vector2 totalForce = boucingForce + boucingForce.magnitude * drivingForceScale * drivingForceMult;
 
